@@ -37,8 +37,12 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-var routes = require('./controllers/burgers_controller.js');
-app.use('/', routes);
+//var routes = require('./controllers/controller.js');
+//app.use('/', routes);
+
+app.get('/', function (req, res) {
+	res.render('index');
+});
 
 var PORT = process.env.PORT || 3000;
 
