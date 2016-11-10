@@ -9,6 +9,7 @@ var methodOverride = require('method-override');
 var Sequelize = require('sequelize');
 var models  = require('./models');
 var app = express();
+var config = require('./config/config');
 
 var sequelizeConnection = models.sequelize;
 
