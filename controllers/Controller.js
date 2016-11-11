@@ -8,6 +8,14 @@ router.get('/', function (req, res) {
 	res.redirect('/index');
 });
 
+router.get('/about', function (req, res) {
+    res.render('about');
+});
+
+router.get('/contact', function (req, res) {
+    res.render('contact');
+});
+
 router.get('/index', function (req, res) {
     models.products.findAll()
     .then(function(result) {
