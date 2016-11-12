@@ -6,6 +6,7 @@
 				{{#each products}}
                     {{!-- {{#unless this.purchased}} --}}
                     {{this.productname}}
+                    <img src={{this.imageurl}}>
                     <form action="/index?_method=PUT" method="POST">
                         <input class="form-control" type="hidden" name="productname">
                     </form>
