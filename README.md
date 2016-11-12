@@ -50,7 +50,7 @@ The following technologies, tools, and npm packages were used:
 
 ## Requirements
 
-Create a DB called burgers2_db
+Create a DB called yardSale
 
 You will need to edit a file called config.json and replace the following code, replacing **Your username**, **Your Password**, and **Your DB** with the appropriate information:
 
@@ -60,7 +60,7 @@ You will need to edit a file called config.json and replace the following code, 
   "development": {
     "username": "Your Username",
     "password": "Your Password",
-    "database": "burgers2_db",
+    "database": "yardSale",
     "host": "localhost",
     "dialect": "mysql"
   },
