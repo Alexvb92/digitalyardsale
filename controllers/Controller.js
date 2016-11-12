@@ -12,6 +12,10 @@ router.get('/about', function (req, res) {
     res.render('about');
 });
 
+router.get('/add', function (req, res) {
+    res.render('add');
+});
+
 router.get('/contact', function (req, res) {
     res.render('contact');
 });
@@ -25,11 +29,14 @@ router.get('/index', function (req, res) {
 
 
 router.post('/Listproducts', function (req, res) {
+    console.log(req.body)
 
     models.products.create({
         productname: req.body.productname,
         price: req.body.price,
         location: req.body.location,
+        stock: req.body.stock,
+        imageurl: req.body.imageurl,
         purchased: false
     })
     .then(function() {
