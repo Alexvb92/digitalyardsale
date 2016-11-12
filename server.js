@@ -15,7 +15,16 @@ var sequelizeConnection = models.sequelize;
 
 var stormpath = require('express-stormpath');
 
-app.use(stormpath.init(app, { }));
+app.use(stormpath.init(app, {
+  apiKey: {
+    id: '34DDNU8D32CBHF0PMO98BBOEA',
+    secret: 'McMybH49PcBUZ0AKTDMjEuaRR4qqJOd60LjSX2UtIw8'
+  },
+  application: {
+    href: `https://api.stormpath.com/v1/applications/5qY13dmWRIvw8b5toe9PjP`
+  }
+}));
+
 
 // // We run this query so that we can drop our tables even though they have foreign keys
 // sequelizeConnection.query('SET FOREIGN_KEY_CHECKS = 0')
