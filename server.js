@@ -56,6 +56,10 @@ app.set('view engine', 'handlebars');
 	var routes = require('./controllers/Controller.js');
 	app.use('/', routes);
 
+// Generate a simple dashboard page.
+app.get('/dashboard', stormpath.loginRequired, function(req, res) {
+  res.send('Hi: ' + req.user.email + '. Logout <form action="/logout" method="POST"><button type="submit">Logout</button></form>');
+});
 // });
 // app.get('/', function (req, res) {
 // 	res.render('index');
