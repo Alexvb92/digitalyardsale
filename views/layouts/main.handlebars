@@ -32,10 +32,7 @@ Here is the main HTML where handlebars will render to
 	                    <li><a href="/about">About</a></li>
 	                    <li><a href="/add">List a new item</a></li>
 	                    <li><a href="/contact">Contact Us</a></li>
-	                    {{#if user}}
-							<li><a href="/logout">Logout</a></li>
-						{{#else}}
-							<li><a href="/login">Login</a></li>
+	                    <li>{{req.user.fullName}}</li>
 	                </ul>
 	            </div>
 			</div>

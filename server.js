@@ -15,6 +15,12 @@ var sequelizeConnection = models.sequelize;
 
 var stormpath = require('express-stormpath');
 
+/**
+ * Stormpath initialization.
+ */
+
+console.log('Initializing Stormpath');
+
 app.use(stormpath.init(app, {
   apiKey: {
     id: '34DDNU8D32CBHF0PMO98BBOEA',
@@ -58,7 +64,8 @@ app.set('view engine', 'handlebars');
 
 // Generate a simple dashboard page.
 app.get('/dashboard', stormpath.loginRequired, function(req, res) {
-  res.send('Hi: ' + req.user.email + '. Logout <form action="/logout" method="POST"><button type="submit">Logout</button></form>');
+  res.send('Hi: ' + req.user.fullName +'<'+ req.user.email + '>. Logout <form action="/logout" method="POST"><button type="submit">Logout</button></form>');
+
 });
 // });
 // app.get('/', function (req, res) {
@@ -73,4 +80,5 @@ var PORT = process.env.PORT || 3000;
 app.listen(PORT, function () {
 	console.log('App listening on PORT ' + PORT);
 });
+  console.log('Stormpath Ready');
 });
