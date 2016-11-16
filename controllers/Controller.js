@@ -27,6 +27,54 @@ router.get('/index', function (req, res) {
     });
 });
 
+router.get('/Athletics', function (req, res) {
+    res.render('athletics');
+});
+
+router.get('/technology', function (req, res) {
+    res.render('technology');
+});
+
+router.get('/gaming', function (req, res) {
+    res.render('gaming');
+});
+
+router.get('/home', function (req, res) {
+    res.render('home');
+});
+
+router.get('/cooking', function (req, res) {
+    res.render('cooking');
+});
+
+router.get('/toys', function (req, res) {
+    res.render('toys');
+});
+
+router.get('/outdoor', function (req, res) {
+    res.render('outdoor');
+});
+
+router.get('/books', function (req, res) {
+    res.render('books');
+});
+
+router.get('/music', function (req, res) {
+    res.render('music');
+});
+
+router.get('/automotive', function (req, res) {
+    res.render('automotive');
+});
+
+router.get('/clothing', function (req, res) {
+    res.render('clothing');
+});
+
+router.get('/custom_makes', function (req, res) {
+    res.render('custom_makes');
+});
+
 
 router.post('/Listproducts', function (req, res) {
     console.log(req.body)
