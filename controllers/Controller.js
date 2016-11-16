@@ -29,9 +29,20 @@ router.get('/index', stormpath.getUser, function (req, res) {
             username : req.user.fullName});
         } else {
         res.render("index", {products: result,
-            username : ''});
+            username : 'Your Account'});
         }
     });
+});
+
+router.get('/user', stormpath.loginRequired, function(req, res) {
+    if (req.user) {
+        res.render("user", {
+            username : req.user.fullName,
+            useremail : req.user.email
+        });
+    } else {
+        res.redirect("/login");
+    }
 });
 
 
