@@ -29,7 +29,7 @@ router.get('/index', stormpath.getUser, function (req, res) {
             username : req.user.fullName});
         } else {
         res.render("index", {products: result,
-            username : 'Your Account'});
+            username : ' '});
         }
     });
 });
