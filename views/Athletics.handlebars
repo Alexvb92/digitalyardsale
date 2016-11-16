@@ -1,0 +1,10 @@
+<div class="well well-lg">
+{{#each products}}
+	{{this.productname}}
+	<img src={{this.imageurl}} class="images">
+	<form action="/athletics?_method=PUT" method="POST">
+		<input class="form-control" type="hidden" name="productname">
+	</form>
+
+{{/each}}
+</div>

@@ -6,7 +6,7 @@ models.sequelize.sync();
 
 
 router.get('/', function (req, res) {
-	res.redirect('/index');
+    res.redirect('/index');
 });
 
 router.get('/about', function (req, res) {
@@ -34,6 +34,7 @@ router.get('/index', stormpath.getUser, function (req, res) {
     });
 });
 
+<<<<<<< HEAD
 router.get('/user', stormpath.loginRequired, function(req, res) {
     if (req.user) {
         res.render("user", {
@@ -43,6 +44,54 @@ router.get('/user', stormpath.loginRequired, function(req, res) {
     } else {
         res.redirect("/login");
     }
+=======
+router.get('/Athletics', function (req, res) {
+    res.render('athletics');
+});
+
+router.get('/technology', function (req, res) {
+    res.render('technology');
+});
+
+router.get('/gaming', function (req, res) {
+    res.render('gaming');
+});
+
+router.get('/home', function (req, res) {
+    res.render('home');
+});
+
+router.get('/cooking', function (req, res) {
+    res.render('cooking');
+});
+
+router.get('/toys', function (req, res) {
+    res.render('toys');
+});
+
+router.get('/outdoor', function (req, res) {
+    res.render('outdoor');
+});
+
+router.get('/books', function (req, res) {
+    res.render('books');
+});
+
+router.get('/music', function (req, res) {
+    res.render('music');
+});
+
+router.get('/automotive', function (req, res) {
+    res.render('automotive');
+});
+
+router.get('/clothing', function (req, res) {
+    res.render('clothing');
+});
+
+router.get('/custom_makes', function (req, res) {
+    res.render('custom_makes');
+>>>>>>> 3883c0b2426904a59c8be8fb646d49558a14252d
 });
 
 
