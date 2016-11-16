@@ -4,7 +4,11 @@ module.exports = function(sequelize, DataTypes) {
     productname: DataTypes.STRING,
     price: DataTypes.INTEGER,
     location: DataTypes.STRING,
-    stock: DataTypes.INTEGER,
+    Purchased: {
+      type: DataTypes.BOOLEAN, 
+      defaultValue: false
+    },
+    departmentname: DataTypes.STRING,
     imageurl: DataTypes.STRING
   }, {
     classMethods: {
