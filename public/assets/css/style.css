@@ -6,7 +6,7 @@
 }
 
 .about p {
-	font-size: 50px;
+	font-size: 40px;
 }
 
 .title {
@@ -15,4 +15,13 @@
 
 .images {
 	width: 150px; height: 150px;
+}
+
+.form-group {
+    width: 80%;
+}
+
+.navbar {
+    background-color: grey;
+
 }
