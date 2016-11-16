@@ -1,5 +1,5 @@
 'use strict';
-
+var category = require('../models')['categories']
 module.exports = {
   up: function (queryInterface, Sequelize) {
     /*
@@ -12,18 +12,18 @@ module.exports = {
 
     return category.bulkCreate(
      [
-      {departmentname:"Athletics"},
-      {departmentname:"Technology"},
-      {departmentname:"Gaming"},
-      {departmentname:"Home"},
-      {departmentname:"Cooking"},
-      {departmentname:"Toys/Figures"},
-      {departmentname:"Yard/Outdoor"},
-      {departmentname:"Books"},
-      {departmentname:"Music"},
-      {departmentname:"Automotive"},
-      {departmentname:"Clothing"},
-      {departmentname:"Custom Makes"}
+      {departmentname: "Athletics"},
+      {departmentname: "Technology"},
+      {departmentname: "Gaming"},
+      {departmentname: "Home"},
+      {departmentname: "Cooking"},
+      {departmentname: "Toys/Figures"},
+      {departmentname: "Yard/Outdoor"},
+      {departmentname: "Books"},
+      {departmentname: "Music"},
+      {departmentname: "Automotive"},
+      {departmentname: "Clothing"},
+      {departmentname: "Custom Makes"}
      ]
     )
   },
@@ -36,7 +36,7 @@ module.exports = {
       Example:
       return queryInterface.dropTable('users');
     */
-    return category.destroy({where:departmentname: [
+    return category.destroy({where:{departmentname: [
       "Athletics",
       "Technology",
       "Gaming",
