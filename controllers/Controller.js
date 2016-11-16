@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
+var stormpath = require('express-stormpath')
 models.sequelize.sync();
 
 
@@ -20,10 +21,16 @@ router.get('/contact', function (req, res) {
     res.render('contact');
 });
 
-router.get('/index', function (req, res) {
+router.get('/index', stormpath.getUser, function (req, res) {
     models.products.findAll()
     .then(function(result) {
-        res.render("index", {products: result});
+        if (req.user) {
+        res.render("index", {products: result,
+            username : req.user.fullName});
+        } else {
+        res.render("index", {products: result,
+            username : ''});
+        }
     });
 });
 
