@@ -1,38 +1,91 @@
-
 <div class="container text-center">
 	<div class="row">
-		<div class="col-md-3">
-			<div class="well well-lg">
-				{{#each products}}
-                    {{!-- {{#unless this.purchased}} --}}
-                    {{this.productname}}
-                    <img src={{this.imageurl}}>
-                    <form action="/index?_method=PUT" method="POST">
-                        <input class="form-control" type="hidden" name="productname">
-                    </form>
-                    {{!-- {{/unless}} --}}
-                {{/each}}
+		<div class="col-md-4">
+			<div class="well well-lg"> <a href="/Athletics">
+				<h2>Athletics</h2>
+				</a>
 			</div>
 		</div>
-		<div class="col-md-3">
-			<div class="well well-lg">
-				<h2>EGO</h2>
+		<div class="col-md-4">
+			<div class="well well-lg"> <a href="/Technology">
+				<h2>Technology</h2>
+				</a>
 			</div>
 		</div>
-		<div class="col-md-3">
-			<div class="well well-lg">
-				<h2>RYS</h2>
+		<div class="col-md-4">
+			<div class="well well-lg"> <a href="/Gaming">
+				<h2>Gaming</h2>
+				</a>
 			</div>
 		</div>
 	</div>
-</div>
 
- <footer class="navbar navbar-inverse navbar-fixed-bottom">
-        <!--<div class="container">
-            <div class="row">
-                <div class="col-md-12"> -->
-                    <p id="copyright" class="text-center">&copy; Copyright 2016 Superb Excellence</p>
-               <!-- </div>
-            </div>
-        </div> -->
-</footer>
+{{!================Row2===================================}}
+	
+	<div class="row">
+		<div class="col-md-4">
+			<div class="well well-lg"> <a href="/Home">
+				<h2>Home</h2>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="well well-lg"> <a href="/Cooking">
+				<h2>Cooking</h2>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="well well-lg"> <a href="/Toys">
+				<h2>Toys/Figures</h2>
+				</a>
+			</div>
+		</div>
+	</div>
+
+{{!================Row3===================================}}
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="well well-lg"> <a href="/Outdoor">
+				<h2>Yard/Outdoor</h2>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="well well-lg"> <a href="/Books">
+				<h2>Books</h2>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="well well-lg"> <a href="/Music">
+				<h2>Music</h2>
+				</a>
+			</div>
+		</div>
+	</div>
+{{!================Row4===================================}}
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="well well-lg"> <a href="/Automotive">
+				<h2>Automotive</h2>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="well well-lg"> <a href="/Clothing">
+				<h2>Clothing</h2>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="well well-lg"> <a href="/Custom_Makes">
+				<h2>Custom Makes</h2>
+				</a>
+			</div>
+		</div>
+	</div>
+
+</div>
