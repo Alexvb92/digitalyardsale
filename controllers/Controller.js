@@ -34,7 +34,6 @@ router.get('/index', stormpath.getUser, function (req, res) {
     });
 });
 
-<<<<<<< HEAD
 router.get('/user', stormpath.loginRequired, function(req, res) {
     if (req.user) {
         res.render("user", {
@@ -44,7 +43,7 @@ router.get('/user', stormpath.loginRequired, function(req, res) {
     } else {
         res.redirect("/login");
     }
-=======
+
 router.get('/Athletics', function (req, res) {
     res.render('athletics');
 });
@@ -91,7 +90,6 @@ router.get('/clothing', function (req, res) {
 
 router.get('/custom_makes', function (req, res) {
     res.render('custom_makes');
->>>>>>> 3883c0b2426904a59c8be8fb646d49558a14252d
 });
 
 
@@ -121,6 +119,5 @@ router.put('/Purchaseproducts', function (req, res) {
         res.redirect("/");
     });
 });
-
 
 module.exports = router;
