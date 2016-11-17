@@ -112,17 +112,25 @@ router.get('/home', function (req, res) {
 });
 
 router.get('/cooking', function (req, res) {
-    res.render('cooking');
+    models.products.findAll({where:{departmentname: 'Cooking'}})
+    .then(function(result) {
+        if (req.user) {
+            res.render('Cooking', {products: result,
+                username: req.user.fullName});
+        } else {
+        res.render('Cooking', {products: result, username : 'Your Account'});
+        }
+    })
 });
 
 router.get('/toys', stormpath.getUser, function (req, res) {
     models.products.findAll({where:{departmentname: 'Toys/figures'}})
     .then(function(result) {
         if (req.user) {
-            res.render('toys', {products: result,
+            res.render('Toys', {products: result,
                 username: req.user.fullName});
         } else {
-        res.render('toys', {products: result, username : 'Your Account'});
+        res.render('Toys', {products: result, username : 'Your Account'});
         }
     })
 });
@@ -152,13 +160,13 @@ router.get('/books', stormpath.getUser, function (req, res) {
 });
 
 router.get('/music', stormpath.getUser, function (req, res) {
-    models.products.findAll({where:{departmentname: 'technology'}})
+    models.products.findAll({where:{departmentname: 'Music'}})
     .then(function(result) {
         if (req.user) {
-            res.render('Technology', {products: result,
+            res.render('Music', {products: result,
                 username: req.user.fullName});
         } else {
-        res.render('Technology', {products: result, username : 'Your Account'});
+        res.render('Music', {products: result, username : 'Your Account'});
         }
     })
 });
