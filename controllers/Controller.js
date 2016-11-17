@@ -43,6 +43,7 @@ router.get('/user', stormpath.loginRequired, function(req, res) {
     } else {
         res.redirect("/login");
     }
+});
 
 router.get('/Athletics', function (req, res) {
     res.render('athletics');

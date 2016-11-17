@@ -17,8 +17,11 @@ module.exports = {
       location: {
         type: Sequelize.STRING
       },
-      stock: {
-        type: Sequelize.INTEGER
+      Purchased: {
+        type: Sequelize.BOOLEAN
+      },
+      departmentname: {
+        type: Sequelize.STRING
       },
       imageurl: {
         type: Sequelize.STRING
