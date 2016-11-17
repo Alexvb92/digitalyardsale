@@ -9,16 +9,28 @@ router.get('/', function (req, res) {
     res.redirect('/index');
 });
 
-router.get('/about', function (req, res) {
-    res.render('about');
+router.get('/about', stormpath.getUser, function (req, res) {
+    if (req.user) {
+        res.render('about', {username: req.user.fullName});
+        } else {
+        res.render('about', {username : 'Your Account'});
+        }
 });
 
-router.get('/add', function (req, res) {
-    res.render('add');
+router.get('/add', stormpath.getUser, function (req, res) {
+        if (req.user) {
+        res.render('add', {username: req.user.fullName});
+        } else {
+        res.render('add', {username : 'Your Account'});
+        }
 });
 
-router.get('/contact', function (req, res) {
-    res.render('contact');
+router.get('/contact', stormpath.getUser, function (req, res) {
+        if (req.user) {
+        res.render('contact', {username: req.user.fullName});
+        } else {
+        res.render('contact', {username : 'Your Account'});
+        }
 });
 
 router.get('/index', stormpath.getUser, function (req, res) {
@@ -45,6 +57,12 @@ router.get('/user', stormpath.loginRequired, function(req, res) {
     }
 });
 
+// Generate a simple dashboard page.
+router.get('/dashboard', stormpath.loginRequired, stormpath.getUser, function(req, res) {
+  res.send('Hi: ' + req.user.fullName +'<'+ req.user.email + '>. Logout <form action="/logout" method="POST"><button type="submit">Logout</button></form>');
+
+});
+
 router.get('/athletics', function (req, res) {
      models.products.findAll({where:{departmentname: 'Athletics'}})
     .then(function(result) {
@@ -58,7 +76,7 @@ router.get('/athletics', function (req, res) {
 });
 
 router.get('/technology', function (req, res) {
-     models.products.findAll({where:{departmentname: 'technology'}})
+     models.products.findAll({where:{departmentname: 'Technology'}})
     .then(function(result) {
         if (req.user) {
             res.render('Technology', {products: result,
@@ -70,51 +88,123 @@ router.get('/technology', function (req, res) {
 });
 
 router.get('/gaming', function (req, res) {
-    res.render('gaming');
+    models.products.findAll({where:{departmentname: 'Gaming'}})
+    .then(function(result) {
+        if (req.user) {
+            res.render('Gaming', {products: result,
+                username: req.user.fullName});
+        } else {
+        res.render('Gaming', {products: result, username : 'Your Account'});
+        }
+    })
 });
 
 router.get('/home', function (req, res) {
-    res.render('home');
+    models.products.findAll({where:{departmentname: 'Home'}})
+    .then(function(result) {
+        if (req.user) {
+            res.render('Home', {products: result,
+                username: req.user.fullName});
+        } else {
+        res.render('Home', {products: result, username : 'Your Account'});
+        }
+    })
 });
 
 router.get('/cooking', function (req, res) {
-    res.render('cooking');
+    models.products.findAll({where:{departmentname: 'Cooking'}})
+    .then(function(result) {
+        if (req.user) {
+            res.render('Cooking', {products: result,
+                username: req.user.fullName});
+        } else {
+        res.render('Cooking', {products: result, username : 'Your Account'});
+        }
+    })
 });
 
 router.get('/toys', stormpath.getUser, function (req, res) {
     models.products.findAll({where:{departmentname: 'Toys/figures'}})
     .then(function(result) {
         if (req.user) {
-            res.render('toys', {products: result,
+            res.render('Toys', {products: result,
                 username: req.user.fullName});
         } else {
-        res.render('toys', {products: result, username : 'Your Account'});
+        res.render('Toys', {products: result, username : 'Your Account'});
         }
     })
 });
 
-router.get('/outdoor', function (req, res) {
-    res.render('outdoor');
+router.get('/outdoor', stormpath.getUser ,function (req, res) {
+    models.products.findAll({where:{departmentname: 'Outdoor'}})
+    .then(function(result) {
+        if (req.user) {
+            res.render('Outdoor', {products: result,
+                username: req.user.fullName});
+        } else {
+        res.render('Outdoor', {products: result, username : 'Your Account'});
+        }
+    })
 });
 
-router.get('/books', function (req, res) {
-    res.render('books');
+router.get('/books', stormpath.getUser, function (req, res) {
+    models.products.findAll({where:{departmentname: 'Books'}})
+    .then(function(result) {
+        if (req.user) {
+            res.render('Books', {products: result,
+                username: req.user.fullName});
+        } else {
+        res.render('Books', {products: result, username : 'Your Account'});
+        }
+    })
 });
 
-router.get('/music', function (req, res) {
-    res.render('music');
+router.get('/music', stormpath.getUser, function (req, res) {
+    models.products.findAll({where:{departmentname: 'Music'}})
+    .then(function(result) {
+        if (req.user) {
+            res.render('Music', {products: result,
+                username: req.user.fullName});
+        } else {
+        res.render('Music', {products: result, username : 'Your Account'});
+        }
+    })
 });
 
-router.get('/automotive', function (req, res) {
-    res.render('automotive');
+router.get('/automotive', stormpath.getUser, function (req, res) {
+    models.products.findAll({where:{departmentname: 'Automotive'}})
+    .then(function(result) {
+        if (req.user) {
+            res.render('Automotive', {products: result,
+                username: req.user.fullName});
+        } else {
+        res.render('Automotive', {products: result, username : 'Your Account'});
+        }
+    })
 });
 
-router.get('/clothing', function (req, res) {
-    res.render('clothing');
+router.get('/clothing', stormpath.getUser, function (req, res) {
+    models.products.findAll({where:{departmentname: 'Clothing'}})
+    .then(function(result) {
+        if (req.user) {
+            res.render('Clothing', {products: result,
+                username: req.user.fullName});
+        } else {
+        res.render('Clothing', {products: result, username : 'Your Account'});
+        }
+    })
 });
 
 router.get('/custom_makes', function (req, res) {
-    res.render('custom_makes');
+    models.products.findAll({where:{departmentname: 'Custom Makes'}})
+    .then(function(result) {
+        if (req.user) {
+            res.render('Custom Makes', {products: result,
+                username: req.user.fullName});
+        } else {
+        res.render('Custom Makes', {products: result, username : 'Your Account'});
+        }
+    })
 });
 
 
