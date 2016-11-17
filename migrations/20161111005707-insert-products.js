@@ -35,7 +35,8 @@ module.exports = {
       "Pearl Drums",
       "Iron Gym Pull Up Bar",
       "evga sc-17",
-      "Ps4 Pro"
+      "Ps4 Pro",
+      "Superman Figure"
 
       ]},
       truncate: true
