@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     price: DataTypes.INTEGER,
     location: DataTypes.STRING,
     Purchased: {
-      type: DataTypes.BOOLEAN, 
+      type: DataTypes.BOOLEAN,
       defaultValue: false
     },
     departmentname: DataTypes.STRING,
