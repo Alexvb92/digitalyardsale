@@ -63,7 +63,7 @@ router.get('/dashboard', stormpath.loginRequired, stormpath.getUser, function(re
 
 });
 
-router.get('/athletics', function (req, res) {
+router.get('/athletics',stormpath.getUser, function (req, res) {
      models.products.findAll({where:{departmentname: 'Athletics'}})
     .then(function(result) {
         if (req.user) {
@@ -75,7 +75,7 @@ router.get('/athletics', function (req, res) {
     })
 });
 
-router.get('/technology', function (req, res) {
+router.get('/technology', stormpath.getUser , function (req, res) {
      models.products.findAll({where:{departmentname: 'Technology'}})
     .then(function(result) {
         if (req.user) {
@@ -87,7 +87,7 @@ router.get('/technology', function (req, res) {
     })
 });
 
-router.get('/gaming', function (req, res) {
+router.get('/gaming', stormpath.getUser, function (req, res) {
     models.products.findAll({where:{departmentname: 'Gaming'}})
     .then(function(result) {
         if (req.user) {
@@ -99,7 +99,7 @@ router.get('/gaming', function (req, res) {
     })
 });
 
-router.get('/home', function (req, res) {
+router.get('/home', stormpath.getUser, function (req, res) {
     models.products.findAll({where:{departmentname: 'Home'}})
     .then(function(result) {
         if (req.user) {
@@ -111,7 +111,7 @@ router.get('/home', function (req, res) {
     })
 });
 
-router.get('/cooking', function (req, res) {
+router.get('/cooking', stormpath.getUser, function (req, res) {
     models.products.findAll({where:{departmentname: 'Cooking'}})
     .then(function(result) {
         if (req.user) {
@@ -195,7 +195,7 @@ router.get('/clothing', stormpath.getUser, function (req, res) {
     })
 });
 
-router.get('/custom_makes', function (req, res) {
+router.get('/custom_makes', stormpath.getUser, function (req, res) {
     models.products.findAll({where:{departmentname: 'Custom Makes'}})
     .then(function(result) {
         if (req.user) {
