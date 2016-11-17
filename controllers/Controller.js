@@ -215,8 +215,8 @@ router.post('/Listproducts', function (req, res) {
         productname: req.body.productname,
         price: req.body.price,
         location: req.body.location,
-        stock: req.body.stock,
         imageurl: req.body.imageurl,
+        departmentname: req.body.departmentname,
         purchased: false
     })
     .then(function() {
