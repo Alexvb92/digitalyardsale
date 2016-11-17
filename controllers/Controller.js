@@ -45,12 +45,28 @@ router.get('/user', stormpath.loginRequired, function(req, res) {
     }
 });
 
-router.get('/Athletics', function (req, res) {
-    res.render('athletics');
+router.get('/athletics', function (req, res) {
+     models.products.findAll({where:{departmentname: 'Athletics'}})
+    .then(function(result) {
+        if (req.user) {
+            res.render('Athletics', {products: result,
+                username: req.user.fullName});
+        } else {
+        res.render('Athletics', {products: result, username : 'Your Account'});
+        }
+    })
 });
 
 router.get('/technology', function (req, res) {
-    res.render('technology');
+     models.products.findAll({where:{departmentname: 'technology'}})
+    .then(function(result) {
+        if (req.user) {
+            res.render('Technology', {products: result,
+                username: req.user.fullName});
+        } else {
+        res.render('Technology', {products: result, username : 'Your Account'});
+        }
+    })
 });
 
 router.get('/gaming', function (req, res) {
@@ -65,8 +81,16 @@ router.get('/cooking', function (req, res) {
     res.render('cooking');
 });
 
-router.get('/toys', function (req, res) {
-    res.render('toys');
+router.get('/toys', stormpath.getUser, function (req, res) {
+    models.products.findAll({where:{departmentname: 'Toys/figures'}})
+    .then(function(result) {
+        if (req.user) {
+            res.render('toys', {products: result,
+                username: req.user.fullName});
+        } else {
+        res.render('toys', {products: result, username : 'Your Account'});
+        }
+    })
 });
 
 router.get('/outdoor', function (req, res) {
