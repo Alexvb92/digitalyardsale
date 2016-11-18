@@ -6,10 +6,9 @@ Here is the main HTML where handlebars will render to
 	<html lang="en">
 		<head>
 			<!-- Latest compiled and minified CSS -->
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="stylesheeta384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 			<script src="https://code.jquery.com/jquery.js"></script>
-			<script src="../../server.js"></script>
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 			<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
 			<link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css" />
 			 <script src="https://use.fontawesome.com/61e33c7db8.js"></script>
@@ -34,7 +33,21 @@ Here is the main HTML where handlebars will render to
 	                    <li><a href="/about">About</a></li>
 	                    <li><a href="/add">List a new item</a></li>
 	                    <li><a href="/contact">Contact Us</a></li>
-	                    <li><a href="/user">{{this.username}}</a></li>
+	                    <li class="dropdown">
+					        <a class="dropdown-toggle" data-toggle="dropdown" href="">{{this.username}}
+					        <span class="caret"></span></a>
+					        <ul class="dropdown-menu">
+					          {{#if this.flag}}
+					          <li class="text-center"><a href="/user">Profile</a></li>
+					          <form action="/logout" method="POST" id="logout">
+					          <li class="text-center"><button class="btn-flat" type="submit">Logout</button>
+					          </form>
+					          {{else}}
+					          <li class="text-center"><a href="/resigter">Register</a></li>
+					          <li class="text-center"><a href="/{{this.actionurl}}">{{this.actiontxt}}</a></li>
+					          {{/if}}
+					        </ul>
+					      </li>
 	                </ul>
 	            </div>
 			</div>
