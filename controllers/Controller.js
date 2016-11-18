@@ -207,9 +207,17 @@ router.get('/custom_makes', stormpath.getUser, function (req, res) {
     })
 });
 
+router.get('/item/:id', function (req, res) {
+        models.products.findAll({where:{id : req.params.id}})
+        .then(function(result) {
+            res.render('item', {products: result})
+        })
+    });
+
+
+
 
 router.post('/Listproducts', function (req, res) {
-    console.log(req.body)
 
     models.products.create({
         productname: req.body.productname,
