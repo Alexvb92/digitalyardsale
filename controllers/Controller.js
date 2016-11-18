@@ -47,11 +47,17 @@ router.get('/index', stormpath.getUser, function (req, res) {
 });
 
 router.get('/user', stormpath.loginRequired, function(req, res) {
+
     if (req.user) {
+        models.User.create(
+            {username:req.user.fullName}
+    ) .then(function() {
+
         res.render("user", {
             username : req.user.fullName,
             useremail : req.user.email
         });
+    });
     } else {
         res.redirect("/login");
     }
@@ -207,7 +213,7 @@ router.get('/custom_makes', stormpath.getUser, function (req, res) {
     })
 });
 
-router.get('/item/:id', function (req, res) {
+router.get('/item/:id', stormpath.getUser, function (req, res) {
         models.products.findAll({where:{id : req.params.id}})
         .then(function(result) {
             res.render('item', {products: result})
@@ -225,7 +231,7 @@ router.post('/Listproducts', function (req, res) {
         location: req.body.location,
         imageurl: req.body.imageurl,
         departmentname: req.body.departmentname,
-        purchased: false
+        purchased: 0
     })
     .then(function() {
         res.redirect("/");
@@ -236,7 +242,7 @@ router.put('/Purchaseproducts', function (req, res) {
 
     models.products.update(
 
-        {purchased: true}, {where: {id: req.body.id}
+        {Purchased: 1}, {where: {id: req.body.id}
     })
     .then(function() {
         res.redirect("/");

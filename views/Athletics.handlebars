@@ -9,7 +9,9 @@
 			<div class="well well-lg">
 
 				{{this.productname}}
-                <a href='/item/{{this.id}}'><img class="images image-responsive" src={{this.imageurl}}></a>
+                <a href='/item/{{this.id}}'>
+                    <img class="images image-responsive" src={{this.imageurl}}>
+                </a>
                 <form action="/index?_method=PUT" method="POST">
                     <input class="form-control" type="hidden" name="productname">
                 </form>
