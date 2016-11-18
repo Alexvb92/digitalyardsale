@@ -18,7 +18,11 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
+      money: {
+        type: DataTypes.INTEGER,
+        defaultValue: 10000
+       }
     });
   },
   down: function(queryInterface, Sequelize) {
