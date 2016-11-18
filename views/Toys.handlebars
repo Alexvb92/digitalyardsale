@@ -6,9 +6,11 @@
 			{{#unless this.Purchased}}
 		<div class="col-md-3">
 			<div class="well well-lg">
-				
+
 				{{this.productname}}
-                <img class="images" src={{this.imageurl}}>
+                <a href='/item/{{this.id}}'>
+                    <img class="images image-responsive" src={{this.imageurl}}>
+                </a>
                 <form action="/index?_method=PUT" method="POST">
                     <input class="form-control" type="hidden" name="productname">
                 </form>

@@ -5,6 +5,12 @@
 
              <img class="images" src={{this.imageurl}} >
              <h1> {{this.productname}} </h1>
-    {{/each}}
-</div>
+             <h1>is loacted in: {{this.location}} </h1>
+             <h1>it costs: {{this.price}} dollars</h1>
+             <form action="/Purchaseproducts?_method=PUT" method="POST" class="buy">
+              <input type="hidden" name="id" value="{{this.id}}">
+              <button class="buyer" type="submit">buy this</button>
+            </form>
+        {{/each}}
+    </div>
 </div>
