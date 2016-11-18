@@ -35,9 +35,13 @@ router.get('/contact', stormpath.getUser, function (req, res) {
 
 router.get('/index', stormpath.getUser, function (req, res) {
     models.products.findAll()
-    .then(function(result) {
-        if (req.user) {
+        .then(function(result) {
+            if (req.user) {models.User.findOrCreate({
+                where: { username: req.user.fullName}
+            }
+         ).then(function(){
             res.render("index", {products: result, username: req.user.fullName, flag: true, actionurl: 'logout', actiontxt: 'Logout'});
+        })
         } else {
             res.render("index", {products: result, username: 'Your Account', flag: false, actionurl: 'login', actiontxt: 'Login'});
         }
@@ -47,17 +51,15 @@ router.get('/index', stormpath.getUser, function (req, res) {
 router.get('/user', stormpath.loginRequired, function(req, res) {
 
     if (req.user) {
-        models.User.findOrCreate({
-            where: { username: req.user.fullName}
-        }
-    ).then(function() {
-
-        res.render("user", {
+        res.render("user",  {
+            flag: true,
+            actionurl: 'logout',
+            actiontxt: 'Logout',
             username: req.user.fullName,
             useremail: req.user.email
         });
-    });
-    } else {
+    }
+    else {
         res.redirect("/login");
     }
 });
