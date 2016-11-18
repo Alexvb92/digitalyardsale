@@ -47,9 +47,10 @@ router.get('/index', stormpath.getUser, function (req, res) {
 router.get('/user', stormpath.loginRequired, function(req, res) {
 
     if (req.user) {
-        models.User.create(
-            {username:req.user.fullName, flag: true, actionurl: 'logout', actiontxt: 'Logout'}
-    ) .then(function() {
+        models.User.findOrCreate({
+            where: { username: req.user.fullName}
+        }
+    ).then(function() {
 
         res.render("user", {
             username: req.user.fullName,
@@ -206,7 +207,7 @@ router.get('/item/:id', stormpath.getUser, function (req, res) {
                 res.render('item', {products: result, username: req.user.fullName, flag: true, actionurl: 'logout', actiontxt: 'Logout'});
             } else {
                 res.render('item', {products: result, username: 'Your Account', flag: false, actionurl: 'login', actiontxt: 'Login'});
-            }          
+            }
         })
     });
 
