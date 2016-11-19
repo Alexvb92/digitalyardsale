@@ -20,7 +20,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       money: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         defaultValue: 10000
        }
     });
