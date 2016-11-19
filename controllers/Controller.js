@@ -50,18 +50,28 @@ router.get('/index', stormpath.getUser, function (req, res) {
 
 router.get('/user', stormpath.loginRequired, function(req, res) {
 
-    if (req.user) {
-        res.render("user",  {
-            flag: true,
-            actionurl: 'logout',
-            actiontxt: 'Logout',
-            username: req.user.fullName,
-            useremail: req.user.email
-        });
-    }
-    else {
-        res.redirect("/login");
-    }
+    models.products.findAll({where:{user_id: req.user.fullName}})
+    .then(function(result) { 
+        
+        models.User.findAll({where: {username: req.user.fullName}})
+        .then(function(data){
+        if (req.user) {
+            res.render('user', {
+                products: result,
+                user: data,
+                flag: true,
+                actionurl: 'logout',
+                actiontxt: 'Logout',
+                username: req.user.fullName,
+                useremail: req.user.email
+            })
+
+        } else {
+            res.redirect("/login");
+        }
+    })
+    })
+
 });
 
 // Generate a simple dashboard page.
