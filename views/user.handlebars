@@ -11,12 +11,18 @@
 		  				<table class="table table-striped">
 		  					<thead>
 		  						<th>Name</th>
-		  						<th>Email<th>
+		  						<th>Email</th>
+		  						<th>Balance</th>
 		  					</thead>
 		  					<tbody>
 		  					<tr>
 		  						<td>{{this.username}}</td>
 		  						<td>{{this.useremail}}</td>
+								{{#each user}}
+								{{#if this.username}}
+		  						<td>{{this.money}}</td>
+		  						{{/if}}
+		  						{{/each}}
 		  					</tr>
 		  					</tbody>
 		  				</table>
@@ -41,6 +47,17 @@
   						<th>Image</th>
   					</thead>
   					<tbody>
+  					{{#each products}}
+  					{{#if this.user_id}}
+					<tr>
+						<td>{{this.productname}}</td>
+						<td>{{this.price}}</td>
+						<td>{{this.location}}</td>
+						<td>{{this.departmentname}}</td>
+						<td><image class="images" src={{this.imageurl}}></td>
+					</tr>
+  					{{/if}}
+  					{{/each}}
   					</tbody>
   				</table>
   			</div>
