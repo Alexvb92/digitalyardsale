@@ -51,8 +51,8 @@ router.get('/index', stormpath.getUser, function (req, res) {
 router.get('/user', stormpath.loginRequired, function(req, res) {
 
     models.products.findAll({where:{user_id: req.user.fullName}})
-    .then(function(result) { 
-        
+    .then(function(result) {
+
         models.User.findAll({where: {username: req.user.fullName}})
         .then(function(data){
         if (req.user) {
@@ -246,7 +246,6 @@ router.put('/Purchaseproducts', stormpath.getUser, function (req, res)
     .then(function(otherresult) {
          models.User.findAll({where:{username: req.user.fullName}})
         .then(function(result) {
-             console.log(result[0].dataValues.money)
              models.User.update(
 
              {money: (result[0].dataValues.money - otherresult[0].dataValues.price)}, {where: {username: req.user.fullName}}
