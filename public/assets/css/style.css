@@ -16,6 +16,7 @@ img{
 	background-color: black !important;
 	color: #ffffff;
 	opacity: .9;
+    float: bottom;
 }
 
 .item {
@@ -70,7 +71,7 @@ img{
 
 i {
     background: none;
-    
+
 }
 .L-1 {
     text-align: center;
@@ -86,4 +87,25 @@ i {
     background-image:none;
     border:0;
     background-color: #ffffff;
+}
+
+.dropdown-menu{
+    position: relative;
+    z-index: 5;
+}
+
+.dropdown {
+    position: relative;
+    z-index: 5;
+
+}
+
+.dropdown-toggle {
+    position: relative;
+    z-index: 5;
+}
+.abouttxt{
+    font-size: 36px;
+    color: #ffffff;
+    text-align: left;
 }
