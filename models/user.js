@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
           onDelete: "CASCADE",
           hooks: true,
           foreignKey: {
-            allowNull: false
+            allowNull: true
           }
         })
       }
