@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
         products.belongsTo(models.User, {
           onDelete: "CASCADE",
           foreignKey: {
-            allowNull: false
+            allowNull: true
           }
         })
       }

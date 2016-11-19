@@ -35,7 +35,8 @@ module.exports = {
         type: Sequelize.DATE
       },
       user_id: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: true
       }
     });
   },
