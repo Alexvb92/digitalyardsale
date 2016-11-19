@@ -15,7 +15,7 @@ module.exports = {
         {productname: "Iron Gym Pull Up Bar", price: "29.99", location: "San Francisco, CA", departmentname: "Athletics", imageurl: "http://03526f9.netsolhost.com/wp-content/uploads/2011/11/irongym.jpg"},
         {productname: "evga sc-17", price: "2700", location: "Chapel Hill, NC", departmentname: "Technology", imageurl: "http://www.ozone3d.net/public/jegx/201601/evga_sc17_gaming_laptop_01.jpg"},
         {productname: "Ps4 Pro", price: "399", location: "Albany, NY", departmentname: "Gaming", imageurl: "https://media.playstation.com/is/image/SCEA/playstation-4-pro-vertical-product-shot-01-us-07sep16?$TwoColumn_Image$"},
-        {productname: "Superman Figure", price: "299", location: "Efland, NC", departmentname: "Toys/Figures", imageurl: "http://img.amiami.jp/images/product/review/132/FIG-KAI-5621_01.jpg"},
+        {productname: "Superman Figure", price: "299", location: "Efland, NC", departmentname: "Toys", imageurl: "http://img.amiami.jp/images/product/review/132/FIG-KAI-5621_01.jpg"},
         {productname: "Yahmaha Revstar", price: "499", location: "Baltimore, MD", departmentname: "Music", imageurl: "http://uk.yamaha.com/en/news_events/musical_instruments/new_electric_guitar_series_revstar/images/info1512150101_dl.jpg"},
         {productname: "Casio PX-350 Black Digital Piano Bundle", price: "549", location: "Raleigh, NC", departmentname: "Music", imageurl: "https://s-media-cache-ak0.pinimg.com/236x/03/06/d3/0306d340b835bbc1cfe50d404af1a26c.jpg"},
         {productname: "Metal Gear Solid V", price: "39", location: "Chapel Hill, NC", departmentname: "Gaming", imageurl: "https://farm1.staticflickr.com/556/19487626499_9f2e33fd01_o.png"},

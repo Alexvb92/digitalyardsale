@@ -42,7 +42,7 @@ module.exports = {
       "Gaming",
       "Home",
       "Cooking",
-      "Toys/Figures",
+      "Toys",
       "Yard/Outdoor",
       "Books",
       "Music",

@@ -136,7 +136,7 @@ router.get('/cooking', stormpath.getUser, function (req, res) {
 });
 
 router.get('/toys', stormpath.getUser, function (req, res) {
-    models.products.findAll({where:{departmentname: 'Toys/figures'}})
+    models.products.findAll({where:{departmentname: 'Toys'}})
     .then(function(result) {
         if (req.user) {
             res.render('Toys', {products: result, username: req.user.fullName, flag: true, actionurl: 'logout', actiontxt: 'Logout'});
