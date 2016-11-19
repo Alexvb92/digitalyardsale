@@ -11,11 +11,21 @@ module.exports = function(sequelize, DataTypes) {
     departmentname: DataTypes.STRING,
     imageurl: DataTypes.STRING
   }, {
+    underscored: true,
+    freezeTableName: true,
+    tableName: 'products',
+
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        products.belongsTo(models.User, {
+          onDelete: "CASCADE",
+          foreignKey: {
+            allowNull: false
+          }
+        })
       }
     }
   });
+
   return products;
 };

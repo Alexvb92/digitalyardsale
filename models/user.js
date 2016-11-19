@@ -8,11 +8,21 @@ module.exports = function(sequelize, DataTypes) {
         autoIncrement: true},
     money: {type: DataTypes.INTEGER, defaultValue: 10000}
   }, {
+    underscored: true,
+    freezeTableName: true,
+    tableName: 'users',
+
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        User.hasMany(models.products, {
+          onDelete: "CASCADE",
+          hooks: true,
+          foreignKey: {
+            allowNull: false
+          }
+        })
       }
     }
-  });
+  })
   return User;
 };
