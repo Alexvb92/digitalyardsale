@@ -147,7 +147,7 @@ router.get('/toys', stormpath.getUser, function (req, res) {
 });
 
 router.get('/outdoor', stormpath.getUser ,function (req, res) {
-    models.products.findAll({where:{departmentname: 'Outdoor'}})
+    models.products.findAll({where:{departmentname: 'Yard/Outdoor'}})
     .then(function(result) {
         if (req.user) {
             res.render('Outdoor', {products: result, username: req.user.fullName, flag: true, actionurl: 'logout', actiontxt: 'Logout'});

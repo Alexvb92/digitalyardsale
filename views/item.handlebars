@@ -1,16 +1,19 @@
-
 <div class="container text-center">
-    <div class="row">
-        {{#each products}}
-
-             <img class="images" src={{this.imageurl}} >
-             <h1> {{this.productname}} </h1>
-             <h1>is loacted in: {{this.location}} </h1>
-             <h1>it costs: {{this.price}} dollars</h1>
-             <form action="/Purchaseproducts?_method=PUT" method="POST" class="buy">
-              <input type="hidden" name="id" value="{{this.id}}">
-              <button class="buyer" type="submit">buy this</button>
-            </form>
-        {{/each}}
-    </div>
+	{{#each products}}
+        <div class="col-md-6 col-md-offset-3 hero-feature">
+            <div class="thumbnail item">
+                <img src="{{this.imageurl}}">
+                    <div class="caption">
+                        <h2 class="itemhead">{{this.productname}}</h2>
+                        <p class="item-p">Location: {{this.location}}</p>
+                        <p class="item-p">Price: ${{this.price}}</p>
+      
+                        <form action="/Purchaseproducts?_method=PUT" method="POST" class="buy">
+              			<input type="hidden" name="id" value="{{this.id}}">
+              			<button class="buyer btn btn-primary" type="submit">Purchase</button>
+          				</form>
+                        
+                    </div>
+    {{/each}}
+     		</div>
 </div>

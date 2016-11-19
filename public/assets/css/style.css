@@ -1,13 +1,54 @@
+body {
+background-image: url("../img/ZenBG.png");
+background-size: cover;
+}
+
+h1 {
+	color: #ffffff;
+}
+
+img{
+	opacity: 1;
+}
+
 .well {
 	background-image: transparent !important;
 	background-color: black !important;
-	opacity: 0.6;
 	color: #ffffff;
+	opacity: .9;
+}
+
+.item {
+	background-image: transparent !important;
+	background-color: black !important;
+	opacity: .8;
+
+}
+
+.item-p {
+	color: #ffffff;
+	font-size: 25px;
+}
+
+.itemhead {
+	color: #ffffff;
+	font-size: 35px;
 }
 
 .about p {
 	font-size: 40px;
+	color: #ffffff;
+	text-align: left;
 }
+
+.about-img {
+	size: 20px;
+}
+
+.contact {
+	height: auto;
+}
+
 
 .title {
 	font-size: 30px;
@@ -22,9 +63,11 @@
 }
 
 .navbar {
-    background-color: grey;
+    background-color: black;
+    opacity: .9;
 
 }
+
 i {
     background: none;
     
