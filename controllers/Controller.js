@@ -229,15 +229,33 @@ router.post('/Listproducts', function (req, res) {
     });
 });
 
-router.put('/Purchaseproducts', function (req, res) {
+router.put('/Purchaseproducts', stormpath.getUser, function (req, res)
+  {
 
-    models.products.update(
+  models.products.findAll({where: {id: req.body.id}})
+    .then(function(otherresult) {
+         models.User.findAll({where:{username: req.user.fullName}})
+        .then(function(result) {
+             console.log(result[0].dataValues.money)
+             models.User.update(
 
-        {Purchased: 1}, {where: {id: req.body.id}
+             {money: (result[0].dataValues.money - otherresult[0].dataValues.price)}, {where: {username: req.user.fullName}}
+             )
+
+             models.products.update(
+
+                {Purchased: 1}, {where: {id: req.body.id}
+             })
+            .then(function() {
+                res.redirect("/");
+            });
+        })
     })
-    .then(function() {
-        res.redirect("/");
-    });
-});
+})
+
+
+
+
+
 
 module.exports = router;
