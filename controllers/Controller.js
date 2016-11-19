@@ -244,7 +244,8 @@ router.put('/Purchaseproducts', stormpath.getUser, function (req, res)
 
              models.products.update(
 
-                {Purchased: 1}, {where: {id: req.body.id}
+
+                {Purchased: 1, user_id: req.user.fullName}, {where: {id: req.body.id}
              })
             .then(function() {
                 res.redirect("/");

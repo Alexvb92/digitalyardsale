@@ -26,13 +26,16 @@ module.exports = {
       imageurl: {
         type: Sequelize.STRING
       },
-      createdAt: {
+      created_At: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_At: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      user_id: {
+        type: Sequelize.STRING
       }
     });
   },
